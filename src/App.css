@@ -1,0 +1,103 @@
+.game-container {
+  max-width: 100%;
+  margin: 0 auto;
+  padding: 10px;
+}
+
+.header {
+  text-align: center;
+  padding: 15px;
+  background-color: #2a2a2a;
+  margin-bottom: 15px;
+  border-radius: 8px;
+}
+
+.header h1 {
+  font-size: 24px;
+  margin: 0;
+  color: #4CAF50;
+}
+
+.map-container {
+  width: 100%;
+  max-width: 700px;
+  margin: 0 auto;
+  overflow-x: auto;
+}
+
+.map-table {
+  width: 100%;
+  border-collapse: collapse;
+  table-layout: fixed;
+}
+
+.map-table td {
+  padding: 0;
+  width: calc(100% / 7);
+  position: relative;
+}
+
+.map-table td.current-cell {
+  outline: 3px solid #00CC00;
+  outline-offset: -3px;
+}
+
+.cell {
+  display: block;
+  width: 100%;
+  padding-top: 100%;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  position: relative;
+  cursor: pointer;
+  transition: opacity 0.2s;
+}
+
+.cell:hover {
+  opacity: 0.8;
+}
+
+.player-marker {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 30px;
+  height: 30px;
+  background-color: rgba(255, 0, 0, 0.7);
+  border-radius: 50%;
+  border: 2px solid #fff;
+  z-index: 10;
+}
+
+.info {
+  text-align: center;
+  margin-top: 20px;
+  padding: 15px;
+  background-color: #2a2a2a;
+  border-radius: 8px;
+  max-width: 700px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.info p {
+  margin: 5px 0;
+  font-size: 14px;
+}
+
+@media (max-width: 768px) {
+  .map-container {
+    max-width: 100%;
+  }
+
+  .header h1 {
+    font-size: 18px;
+  }
+
+  .player-marker {
+    width: 20px;
+    height: 20px;
+  }
+}
