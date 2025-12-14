@@ -4,6 +4,18 @@ import './App.css'
 function App() {
   const [currentCell, setCurrentCell] = useState(504)
   const [showMinimap, setShowMinimap] = useState(false)
+  const [season, setSeason] = useState('summer')
+
+  const seasons = [
+    { id: 'summer', name: 'Лето', suffix: 'l11sd2' },
+    { id: 'winter1', name: 'Зима 1', suffix: 'l11sd1' },
+    { id: 'winter2', name: 'Зима 2', suffix: 'l11sd3' },
+    { id: 'winter3', name: 'Зима 3', suffix: 'l11sd4' },
+    { id: 'winter4', name: 'Зима 4', suffix: 'l11sd5' },
+    { id: 'winter5', name: 'Зима 5', suffix: 'l11sd6' }
+  ]
+
+  const currentSeasonSuffix = seasons.find(s => s.id === season)?.suffix || 'l11sd2'
 
   // Определяем структуру карты - какие клетки видимы в виде 7x5 сетки
   const getVisibleCells = (centerCell) => {
@@ -61,7 +73,7 @@ function App() {
                       <div
                         className="cell"
                         style={{
-                          backgroundImage: `url(/original_images/${cellId}_l11sd2.jpg)`
+                          backgroundImage: `url(/original_images/${cellId}_${currentSeasonSuffix}.jpg)`
                         }}
                       >
                         {isCurrentCell && (
@@ -79,6 +91,18 @@ function App() {
 
       <div className="info">
         <p>Текущая позиция: {currentCell}</p>
+      </div>
+
+      <div className="season-selector">
+        {seasons.map((s) => (
+          <button
+            key={s.id}
+            className={`season-button ${season === s.id ? 'active' : ''}`}
+            onClick={() => setSeason(s.id)}
+          >
+            {s.name}
+          </button>
+        ))}
       </div>
 
       <div className="minimap-button-container">
