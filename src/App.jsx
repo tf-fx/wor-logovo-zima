@@ -17,6 +17,9 @@ function App() {
 
   const currentSeason = seasons.find(s => s.id === season) || seasons[0]
 
+  // Определяем источник миникарты в зависимости от сезона
+  const minimapSrc = season === 'winter1' ? '/mini_maps/1.png' : '/mini_maps/map11.jpg'
+
   // Определяем структуру карты - какие клетки видимы в виде 7x5 сетки
   const getVisibleCells = (centerCell) => {
     const row = Math.floor(centerCell / 33)
@@ -117,7 +120,7 @@ function App() {
       {showMinimap && (
         <div className="minimap-overlay" onClick={() => setShowMinimap(false)}>
           <div className="minimap-content" onClick={(e) => e.stopPropagation()}>
-            <img src="/mini_maps/map11.jpg" alt="Миникарта" />
+            <img src={minimapSrc} alt="Миникарта" />
             <button
               className="close-button"
               onClick={() => setShowMinimap(false)}
