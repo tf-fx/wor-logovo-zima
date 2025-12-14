@@ -7,15 +7,15 @@ function App() {
   const [season, setSeason] = useState('summer')
 
   const seasons = [
-    { id: 'summer', name: 'Лето', suffix: 'l11sd2' },
-    { id: 'winter1', name: 'Зима 1', suffix: 'l11sd1' },
-    { id: 'winter2', name: 'Зима 2', suffix: 'l11sd3' },
-    { id: 'winter3', name: 'Зима 3', suffix: 'l11sd4' },
-    { id: 'winter4', name: 'Зима 4', suffix: 'l11sd5' },
-    { id: 'winter5', name: 'Зима 5', suffix: 'l11sd6' }
+    { id: 'summer', name: 'Лето', folder: 'original_images', suffix: 'l11sd2' },
+    { id: 'winter1', name: 'Зима 1', folder: 'zima1', suffix: 'l11sd2' },
+    { id: 'winter2', name: 'Зима 2', folder: 'original_images', suffix: 'l11sd3' },
+    { id: 'winter3', name: 'Зима 3', folder: 'original_images', suffix: 'l11sd4' },
+    { id: 'winter4', name: 'Зима 4', folder: 'original_images', suffix: 'l11sd5' },
+    { id: 'winter5', name: 'Зима 5', folder: 'original_images', suffix: 'l11sd6' }
   ]
 
-  const currentSeasonSuffix = seasons.find(s => s.id === season)?.suffix || 'l11sd2'
+  const currentSeason = seasons.find(s => s.id === season) || seasons[0]
 
   // Определяем структуру карты - какие клетки видимы в виде 7x5 сетки
   const getVisibleCells = (centerCell) => {
@@ -73,7 +73,7 @@ function App() {
                       <div
                         className="cell"
                         style={{
-                          backgroundImage: `url(/original_images/${cellId}_${currentSeasonSuffix}.jpg)`
+                          backgroundImage: `url(/${currentSeason.folder}/${cellId}_${currentSeason.suffix}.jpg)`
                         }}
                       >
                         {isCurrentCell && (
