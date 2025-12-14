@@ -9,7 +9,7 @@ function App() {
   const seasons = [
     { id: 'summer', name: 'Лето', folder: 'original_images', suffix: 'l11sd2' },
     { id: 'winter1', name: 'Зима 1', folder: 'zima1', suffix: 'l11sd2' },
-    { id: 'winter2', name: 'Зима 2', folder: 'original_images', suffix: 'l11sd3' },
+    { id: 'winter2', name: 'Зима 2', folder: 'zima2', suffix: 'l11sd2' },
     { id: 'winter3', name: 'Зима 3', folder: 'original_images', suffix: 'l11sd4' },
     { id: 'winter4', name: 'Зима 4', folder: 'original_images', suffix: 'l11sd5' },
     { id: 'winter5', name: 'Зима 5', folder: 'original_images', suffix: 'l11sd6' }
