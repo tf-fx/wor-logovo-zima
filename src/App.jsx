@@ -3,6 +3,7 @@ import './App.css'
 
 function App() {
   const [currentCell, setCurrentCell] = useState(504)
+  const [showMinimap, setShowMinimap] = useState(false)
 
   // Определяем структуру карты - какие клетки видимы в виде 7x5 сетки
   const getVisibleCells = (centerCell) => {
@@ -79,6 +80,29 @@ function App() {
       <div className="info">
         <p>Текущая позиция: {currentCell}</p>
       </div>
+
+      <div className="minimap-button-container">
+        <button
+          className="minimap-button"
+          onClick={() => setShowMinimap(!showMinimap)}
+        >
+          Миникарта
+        </button>
+      </div>
+
+      {showMinimap && (
+        <div className="minimap-overlay" onClick={() => setShowMinimap(false)}>
+          <div className="minimap-content" onClick={(e) => e.stopPropagation()}>
+            <img src="/mini_maps/map11.jpg" alt="Миникарта" />
+            <button
+              className="close-button"
+              onClick={() => setShowMinimap(false)}
+            >
+              ✕
+            </button>
+          </div>
+        </div>
+      )}
     </div>
   )
 }
