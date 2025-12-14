@@ -18,7 +18,10 @@ function App() {
   const currentSeason = seasons.find(s => s.id === season) || seasons[0]
 
   // Определяем источник миникарты в зависимости от сезона
-  const minimapSrc = season === 'winter1' ? '/mini_maps/1.png' : '/mini_maps/map11.jpg'
+  const minimapSrc =
+    season === 'winter1' ? '/mini_maps/1.png'
+    : season === 'winter2' ? '/mini_maps/3.jpg'
+    : '/mini_maps/map11.jpg'
 
   // Определяем структуру карты - какие клетки видимы в виде 7x5 сетки
   const getVisibleCells = (centerCell) => {
